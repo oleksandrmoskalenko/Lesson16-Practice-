@@ -19,6 +19,9 @@ body {
     background-color: #e8eeee;
 }
 
+.auth, .auth-method__link, .additional__link, .form__checkbox-label + .form__input { position: relative;}
+.auth::before, .auth-method__link::after, .additional__link::after, .form__checkbox-label + .form__input:checked:after { position: absolute;}
+
 .auth {
     width: 400px;
     height: 500px;
@@ -30,12 +33,11 @@ body {
     flex-direction: column;
     justify-content: space-between;
     /* box-shadow: 0 -0 8px 2px #999; */
-    position: relative;
     color: #fbf6e4;
+    font-weight: 700;
 }
 
 .auth::before {
-    position: absolute;
     content: '';
     width: calc(100% + 80px);
     height: 234px;
@@ -53,18 +55,15 @@ body {
 .auth-method__link {
     margin-right: 25px;
     font-size: 18px;
-    font-weight: 700;
     color: #fbf6e4;
     opacity: .5;
     text-decoration: none;
-    position: relative;
 }
 
 .auth-method__link::after {
     content: '';
     width: 0;
     height: 2px;
-    position: absolute;
     bottom: -50px;
     transition: .3s;
     background-color: #e66a64;
@@ -82,7 +81,6 @@ body {
 
 .form__label {
     font-size: 16px;
-    font-weight: 700;
     padding-bottom: 11px;
 }
 
@@ -98,19 +96,19 @@ body {
 
 .form__input:focus {
     border-color: rgb(191, 185, 204);
-    background-color: #e5eeee;
+    background-color: rgba(229,238,238,0.6);
+    font-weight: 700;
+    box-shadow: inset 0 0 2px 2px grey;
 }
 
 .form__checkbox-label {
     font-size: 13px;
-    font-weight: 700;
 }
 
 .form__checkbox-label + .form__input {
     width: 16px;
     height: 16px;
     margin: 0 7px 0 0;
-    position: relative;
 }
 
 .form__element:nth-child(3) {
@@ -129,7 +127,6 @@ body {
     border: 0;
     color: #fff;
     font-size: 18px;
-    font-weight: 700;
 }
 
 .form__element:last-of-type .form__input:focus {
@@ -142,7 +139,7 @@ body {
     color: #fbf6e4;
     opacity: .5;
     text-decoration: none;
-    position: relative;
+    font-weight: 400;
 }
 
 .additional__link:first-of-type {
@@ -153,7 +150,6 @@ body {
     content: '';
     width: 0;
     height: 1px;
-    position: absolute;
     bottom: -100px;
     transition: .3s;
     /* opacity: 0.15; */
@@ -168,10 +164,9 @@ body {
 }
 
 .form__checkbox-label + .form__input:checked:after {
-    position: absolute;
     background: #23ae92;
     width: 16px;
     content: ' \2713 ';
     white-space: pre;
-    color: white;
+    color: #fff;
 }
